@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Church, User, BarChart3, Map } from "lucide-react";
+import { Church, User, BarChart3, Map as MapIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
@@ -9,7 +9,7 @@ const Navigation = () => {
     { to: "/", icon: BarChart3, label: "Dashboard" },
     { to: "/churches", icon: Church, label: "Churches" },
     { to: "/pastors", icon: User, label: "Pastors" },
-    { to: "/map", icon: Map, label: "Map View" },
+    { to: "/map", icon: MapIcon, label: "Map View" },
   ];
 
   return (

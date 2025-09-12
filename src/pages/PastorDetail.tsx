@@ -1,15 +1,23 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, User, Calendar, Briefcase, Church } from "lucide-react";
+import { ArrowLeft, User, Calendar, Briefcase, Church, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { mockPastors, mockChurches } from "@/data/mockData";
 import Layout from "@/components/layout/Layout";
+import PastorEditForm from "@/components/forms/PastorEditForm";
 
 const PastorDetail = () => {
   const { id } = useParams();
-  const pastor = mockPastors.find((p) => p.id === id);
+  const [pastor, setPastor] = useState(() => mockPastors.find((p) => p.id === id));
   const associatedChurch = mockChurches.find((c) => c.head_pastor === pastor?.name);
+
+  const handleUpdate = (updatedPastor: typeof pastor) => {
+    if (updatedPastor) {
+      setPastor(updatedPastor);
+    }
+  };
 
   if (!pastor) {
     return (
@@ -50,11 +58,23 @@ const PastorDetail = () => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between">
-                      <div>
+                      <div className="flex-1">
                         <CardTitle className="text-2xl">{pastor.name}</CardTitle>
                         <p className="text-lg text-muted-foreground mt-1">{pastor.position}</p>
                       </div>
-                      <Badge variant="secondary">Active</Badge>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary">Active</Badge>
+                        <PastorEditForm 
+                          pastor={pastor} 
+                          onSave={handleUpdate}
+                          trigger={
+                            <Button variant="outline" size="sm">
+                              <Edit className="h-4 w-4 mr-2" />
+                              Edit
+                            </Button>
+                          }
+                        />
+                      </div>
                     </div>
                     <div className="grid gap-4 md:grid-cols-2 mt-6">
                       <div className="flex items-center gap-3">

@@ -1,15 +1,23 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Users, DollarSign, User, Camera } from "lucide-react";
+import { ArrowLeft, MapPin, Users, DollarSign, User, Camera, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { mockChurches, mockPastors } from "@/data/mockData";
 import Layout from "@/components/layout/Layout";
+import ChurchEditForm from "@/components/forms/ChurchEditForm";
 
 const ChurchDetail = () => {
   const { id } = useParams();
-  const church = mockChurches.find((c) => c.id === id);
+  const [church, setChurch] = useState(() => mockChurches.find((c) => c.id === id));
   const headPastor = mockPastors.find((p) => p.name === church?.head_pastor);
+
+  const handleUpdate = (updatedChurch: typeof church) => {
+    if (updatedChurch) {
+      setChurch(updatedChurch);
+    }
+  };
 
   if (!church) {
     return (
@@ -41,14 +49,26 @@ const ChurchDetail = () => {
             <Card>
               <CardHeader>
                 <div className="flex items-start justify-between">
-                  <div>
+                  <div className="flex-1">
                     <CardTitle className="text-2xl">{church.name}</CardTitle>
                     <div className="flex items-center gap-2 text-muted-foreground mt-2">
                       <MapPin className="h-4 w-4" />
                       <span>{church.location}</span>
                     </div>
                   </div>
-                  <Badge variant="secondary">Active</Badge>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">Active</Badge>
+                    <ChurchEditForm 
+                      church={church} 
+                      onSave={handleUpdate}
+                      trigger={
+                        <Button variant="outline" size="sm">
+                          <Edit className="h-4 w-4 mr-2" />
+                          Edit
+                        </Button>
+                      }
+                    />
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>

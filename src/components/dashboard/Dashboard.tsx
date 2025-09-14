@@ -11,8 +11,22 @@ const Dashboard = () => {
   const averageMembers = Math.round(totalMembers / mockChurches.length);
   const averageIncome = Math.round(totalIncome / mockChurches.length);
 
+  // Count clergy by type
+  const clergyStats = mockPastors.reduce((acc, pastor) => {
+    const type = pastor.clergy_type || 'Pastor';
+    acc[type] = (acc[type] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const bishops = clergyStats.Bishop || 0;
+  const mothers = clergyStats.Mother || 0;
+  const sisters = clergyStats.Sister || 0;
+  const reverends = clergyStats.Reverend || 0;
+  const pastors = clergyStats.Pastor || 0;
+
   return (
     <div className="space-y-8">
+      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-foreground">Fact-Check Dashboard</h1>
         <p className="text-muted-foreground mt-2">
@@ -20,8 +34,8 @@ const Dashboard = () => {
         </p>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {/* Main Stats Grid - 2 cols on mobile, 4 on desktop */}
+      <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
         <StatsCard
           title="Total Churches"
           value={mockChurches.length}
@@ -30,9 +44,9 @@ const Dashboard = () => {
           trend={{ value: 12, isPositive: true }}
         />
         <StatsCard
-          title="Total Pastors"
+          title="Total Clergy"
           value={mockPastors.length}
-          subtitle="Registered leaders"
+          subtitle="All registered clergy"
           icon={User}
           trend={{ value: 8, isPositive: true }}
         />
@@ -50,6 +64,33 @@ const Dashboard = () => {
           icon={DollarSign}
           trend={{ value: 15, isPositive: true }}
         />
+      </div>
+
+      {/* Clergy Type Stats */}
+      <div>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Clergy by Type</h2>
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="bg-card border rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-foreground">{bishops}</div>
+            <div className="text-sm text-muted-foreground">Bishops</div>
+          </div>
+          <div className="bg-card border rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-foreground">{mothers}</div>
+            <div className="text-sm text-muted-foreground">Mothers</div>
+          </div>
+          <div className="bg-card border rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-foreground">{sisters}</div>
+            <div className="text-sm text-muted-foreground">Sisters</div>
+          </div>
+          <div className="bg-card border rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-foreground">{reverends}</div>
+            <div className="text-sm text-muted-foreground">Reverends</div>
+          </div>
+          <div className="bg-card border rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-foreground">{pastors}</div>
+            <div className="text-sm text-muted-foreground">Pastors</div>
+          </div>
+        </div>
       </div>
 
       {/* Quick Actions */}

@@ -57,15 +57,15 @@ const PastorDetail = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-start justify-between">
+                    <div className="flex flex-col sm:flex-row items-start justify-between">
                       <div className="flex-1">
                         <CardTitle className="text-2xl">{pastor.name}</CardTitle>
                         <p className="text-lg text-muted-foreground mt-1">{pastor.position}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary">Active</Badge>
-                        <PastorEditForm 
-                          pastor={pastor} 
+                        <PastorEditForm
+                          pastor={pastor}
                           onSave={handleUpdate}
                           trigger={
                             <Button variant="outline" size="sm">
@@ -104,13 +104,13 @@ const PastorDetail = () => {
               <CardContent>
                 <div className="prose max-w-none text-muted-foreground">
                   <p>
-                    {pastor.name} serves as {pastor.position.toLowerCase()} and has been a significant 
-                    figure in their religious community. At {pastor.age} years old, they bring extensive 
+                    {pastor.name} serves as {pastor.position.toLowerCase()} and has been a significant
+                    figure in their religious community. At {pastor.age} years old, they bring extensive
                     experience and leadership to their role in ministry and community service.
                   </p>
                   <p className="mt-4">
-                    Their dedication to spiritual guidance and community development has made them 
-                    a respected leader in their field, contributing to the growth and well-being 
+                    Their dedication to spiritual guidance and community development has made them
+                    a respected leader in their field, contributing to the growth and well-being
                     of their congregation and the broader community.
                   </p>
                 </div>

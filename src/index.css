@@ -48,10 +48,10 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(205 90% 35%), hsl(190 80% 45%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(185 25% 97%));
     --gradient-hero: linear-gradient(135deg, hsl(205 90% 25%) 0%, hsl(190 80% 35%) 100%);
-    
+
     --shadow-card: 0 4px 6px -1px hsl(205 90% 35% / 0.1), 0 2px 4px -2px hsl(205 90% 35% / 0.1);
     --shadow-elevated: 0 10px 15px -3px hsl(205 90% 35% / 0.1), 0 4px 6px -4px hsl(205 90% 35% / 0.1);
-    
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;
@@ -71,6 +71,66 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --text-50: #f6eff0;
+    --text-100: #eddee1;
+    --text-200: #dabec3;
+    --text-300: #c89da6;
+    --text-400: #b67c88;
+    --text-500: #a35c6a;
+    --text-600: #834955;
+    --text-700: #623740;
+    --text-800: #41252a;
+    --text-900: #211215;
+    --text-950: #10090b;
+
+    --background-50: #f6eef0;
+    --background-100: #eedde0;
+    --background-200: #ddbbc2;
+    --background-300: #cc99a3;
+    --background-400: #bb7785;
+    --background-500: #aa5566;
+    --background-600: #884452;
+    --background-700: #66333d;
+    --background-800: #442229;
+    --background-900: #221114;
+    --background-950: #11090a;
+
+    --primary-50: #f9ebef;
+    --primary-100: #f3d8df;
+    --primary-200: #e7b1be;
+    --primary-300: #db8a9e;
+    --primary-400: #cf637e;
+    --primary-500: #c33c5e;
+    --primary-600: #9c304b;
+    --primary-700: #752438;
+    --primary-800: #4e1825;
+    --primary-900: #270c13;
+    --primary-950: #140609;
+
+    --secondary-50: #faeaee;
+    --secondary-100: #f5d6dd;
+    --secondary-200: #ecacbb;
+    --secondary-300: #e28399;
+    --secondary-400: #d85a77;
+    --secondary-500: #cf3055;
+    --secondary-600: #a52744;
+    --secondary-700: #7c1d33;
+    --secondary-800: #531322;
+    --secondary-900: #290a11;
+    --secondary-950: #150509;
+
+    --accent-50: #fce9ee;
+    --accent-100: #f8d3dc;
+    --accent-200: #f2a6b9;
+    --accent-300: #eb7a96;
+    --accent-400: #e44e73;
+    --accent-500: #de2150;
+    --accent-600: #b11b40;
+    --accent-700: #851430;
+    --accent-800: #590d20;
+    --accent-900: #2c0710;
+    --accent-950: #160308;
   }
 
   .dark {
@@ -109,6 +169,66 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --text-50: #10090b;
+    --text-100: #211215;
+    --text-200: #41252a;
+    --text-300: #623740;
+    --text-400: #834955;
+    --text-500: #a35c6a;
+    --text-600: #b67c88;
+    --text-700: #c89da6;
+    --text-800: #dabec3;
+    --text-900: #eddee1;
+    --text-950: #f6eff0;
+
+    --background-50: #11090a;
+    --background-100: #221114;
+    --background-200: #442229;
+    --background-300: #66333d;
+    --background-400: #884452;
+    --background-500: #aa5566;
+    --background-600: #bb7785;
+    --background-700: #cc99a3;
+    --background-800: #ddbbc2;
+    --background-900: #eedde0;
+    --background-950: #f6eef0;
+
+    --primary-50: #140609;
+    --primary-100: #270c13;
+    --primary-200: #4e1825;
+    --primary-300: #752438;
+    --primary-400: #9c304b;
+    --primary-500: #c33c5e;
+    --primary-600: #cf637e;
+    --primary-700: #db8a9e;
+    --primary-800: #e7b1be;
+    --primary-900: #f3d8df;
+    --primary-950: #f9ebef;
+
+    --secondary-50: #150509;
+    --secondary-100: #290a11;
+    --secondary-200: #531322;
+    --secondary-300: #7c1d33;
+    --secondary-400: #a52744;
+    --secondary-500: #cf3055;
+    --secondary-600: #d85a77;
+    --secondary-700: #e28399;
+    --secondary-800: #ecacbb;
+    --secondary-900: #f5d6dd;
+    --secondary-950: #faeaee;
+
+    --accent-50: #160308;
+    --accent-100: #2c0710;
+    --accent-200: #590d20;
+    --accent-300: #851430;
+    --accent-400: #b11b40;
+    --accent-500: #de2150;
+    --accent-600: #e44e73;
+    --accent-700: #eb7a96;
+    --accent-800: #f2a6b9;
+    --accent-900: #f8d3dc;
+    --accent-950: #fce9ee;
   }
 }
 

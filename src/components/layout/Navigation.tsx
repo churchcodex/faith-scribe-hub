@@ -2,14 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Church, User, BarChart3, Map as MapIcon, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 
 const Navigation = () => {
   const location = useLocation();
@@ -22,7 +15,7 @@ const Navigation = () => {
     { to: "/map", icon: MapIcon, label: "Map View" },
   ];
 
-  const NavLink = ({ item, onClick }: { item: typeof navItems[0]; onClick?: () => void }) => {
+  const NavLink = ({ item, onClick }: { item: (typeof navItems)[0]; onClick?: () => void }) => {
     const Icon = item.icon;
     const isActive = location.pathname === item.to;
 
@@ -33,8 +26,8 @@ const Navigation = () => {
         className={cn(
           "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200",
           isActive
-            ? "border-b-2 border-primary text-primary md:border-b-2 md:border-primary"
-            : "text-muted-foreground hover:text-foreground hover:border-b-2 hover:border-muted-foreground"
+            ? "border-b-2 border-accent-500 text-primary-700 dark:text-primary-300 md:border-b-2 md:border-accent-500"
+            : "text-text-600 dark:text-text-400 hover:text-primary-700 dark:hover:text-primary-300 hover:border-b-2 hover:border-secondary-400 dark:hover:border-secondary-600"
         )}
       >
         <Icon className="mr-2 h-4 w-4" />
@@ -43,7 +36,7 @@ const Navigation = () => {
     );
   };
 
-  const MobileNavLink = ({ item }: { item: typeof navItems[0] }) => {
+  const MobileNavLink = ({ item }: { item: (typeof navItems)[0] }) => {
     const Icon = item.icon;
     const isActive = location.pathname === item.to;
 
@@ -54,8 +47,8 @@ const Navigation = () => {
         className={cn(
           "flex items-center px-4 py-3 text-base font-medium transition-colors duration-200 rounded-lg mx-2",
           isActive
-            ? "bg-primary/10 text-primary border-l-4 border-primary"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            ? "bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 text-primary-900 dark:text-primary-100 border-l-4 border-accent-500"
+            : "text-text-700 dark:text-text-300 hover:text-primary-800 dark:hover:text-primary-200 hover:bg-secondary-100 dark:hover:bg-secondary-900"
         )}
       >
         <Icon className="mr-3 h-5 w-5" />
@@ -95,9 +88,7 @@ const Navigation = () => {
               <DrawerContent>
                 <DrawerHeader className="text-left">
                   <div className="flex items-center justify-between">
-                    <DrawerTitle className="text-xl font-bold text-primary">
-                      FactCheck
-                    </DrawerTitle>
+                    <DrawerTitle className="text-xl font-bold text-primary">FactCheck</DrawerTitle>
                     <DrawerClose asChild>
                       <button className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted">
                         <X className="h-6 w-6" />

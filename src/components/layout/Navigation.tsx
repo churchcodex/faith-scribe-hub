@@ -26,8 +26,8 @@ const Navigation = () => {
         className={cn(
           "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200",
           isActive
-            ? "border-b-2 border-primary text-foreground md:border-b-2 md:border-primary"
-            : "text-muted-foreground hover:text-foreground hover:border-b-2 hover:border-border"
+            ? "border-b-2 border-primary text-white md:border-b-2 md:border-primary"
+            : "text-slate-300 hover:text-white hover:border-b-2 hover:border-slate-600"
         )}
       >
         <Icon className="mr-2 h-4 w-4" />
@@ -47,8 +47,8 @@ const Navigation = () => {
         className={cn(
           "flex items-center px-4 py-3 text-base font-medium transition-colors duration-200 rounded-lg mx-2",
           isActive
-            ? "bg-primary/10 text-foreground border-l-4 border-primary"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            ? "bg-primary/10 text-white border-l-4 border-primary"
+            : "text-slate-300 hover:text-white hover:bg-neutral-700"
         )}
       >
         <Icon className="mr-3 h-5 w-5" />
@@ -58,7 +58,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-card border-b border-border">
+    <nav className="bg-card border-b border-neutral-600 bg-neutral-800 text-slate-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">

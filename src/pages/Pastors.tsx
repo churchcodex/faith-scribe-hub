@@ -33,20 +33,20 @@ const Pastors = () => {
 
   return (
     <Layout>
-      <div className="space-y-6">
+      <div className="space-y-6 p-6 rounded-xl bg-neutral-700">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Pastors</h1>
-          <p className="text-muted-foreground mt-2">Browse and analyze pastor profiles</p>
+          <h1 className="text-3xl font-bold text-white/80">Pastors</h1>
+          <p className="text-muted-white/text-white/80 mt-2">Browse and analyze pastor profiles</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-[1fr_auto_auto_auto] items-end">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-900 bg-h-4 w-4" />
             <Input
               placeholder="Search pastors..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 text-slate-800"
             />
           </div>
 
@@ -56,8 +56,8 @@ const Pastors = () => {
               value={clergyTypeFilter}
               onValueChange={(value) => setClergyTypeFilter(value as ClergyType | "all")}
             >
-              <SelectTrigger id="clergy-type" className="w-full">
-                <SelectValue placeholder="All Types" />
+              <SelectTrigger id="clergy-type" className="w-full text-slate-800">
+                <SelectValue placeholder="All Types" className="text-slate-800" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Types</SelectItem>
@@ -78,7 +78,7 @@ const Pastors = () => {
               placeholder="Min"
               value={minAge}
               onChange={(e) => setMinAge(e.target.value)}
-              className="w-full"
+              className="w-full text-slate-800"
             />
           </div>
 
@@ -90,12 +90,12 @@ const Pastors = () => {
               placeholder="Max"
               value={maxAge}
               onChange={(e) => setMaxAge(e.target.value)}
-              className="w-full"
+              className="w-full text-slate-800"
             />
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="flex gap-2 flex-wrap">
           {filteredPastors.map((pastor) => (
             <PastorCard key={pastor.id} pastor={pastor} />
           ))}
@@ -103,7 +103,7 @@ const Pastors = () => {
 
         {filteredPastors.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No pastors found matching your search.</p>
+            <p className="text-muted-white/text-white/80">No pastors found matching your search.</p>
           </div>
         )}
       </div>

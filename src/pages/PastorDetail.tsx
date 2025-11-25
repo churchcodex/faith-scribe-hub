@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, User, Calendar, Briefcase, Church, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,10 @@ const PastorDetail = () => {
   const { id } = useParams();
   const [pastor, setPastor] = useState(() => mockPastors.find((p) => p.id === id));
   const associatedChurch = mockChurches.find((c) => c.head_pastor === pastor?.name);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const handleUpdate = (updatedPastor: typeof pastor) => {
     if (updatedPastor) {
@@ -48,7 +52,7 @@ const PastorDetail = () => {
           <div className="lg:col-span-2 space-y-6">
             <Card>
               <CardHeader>
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                   <div className="w-32 h-32 bg-muted rounded-full overflow-hidden">
                     <img
                       src={pastor.profile_image || "/api/placeholder/200/200"}
@@ -104,14 +108,14 @@ const PastorDetail = () => {
               <CardContent>
                 <div className="prose max-w-none text-muted-foreground">
                   <p>
-                    {pastor.name} serves as {pastor.position.toLowerCase()} and has been a significant
-                    figure in their religious community. At {pastor.age} years old, they bring extensive
-                    experience and leadership to their role in ministry and community service.
+                    {pastor.name} serves as {pastor.position.toLowerCase()} and has been a significant figure in their
+                    religious community. At {pastor.age} years old, they bring extensive experience and leadership to
+                    their role in ministry and community service.
                   </p>
                   <p className="mt-4">
-                    Their dedication to spiritual guidance and community development has made them
-                    a respected leader in their field, contributing to the growth and well-being
-                    of their congregation and the broader community.
+                    Their dedication to spiritual guidance and community development has made them a respected leader in
+                    their field, contributing to the growth and well-being of their congregation and the broader
+                    community.
                   </p>
                 </div>
               </CardContent>

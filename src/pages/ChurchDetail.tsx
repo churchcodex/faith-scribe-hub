@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Users, DollarSign, User, Camera, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,10 @@ const ChurchDetail = () => {
   const { id } = useParams();
   const [church, setChurch] = useState(() => mockChurches.find((c) => c.id === id));
   const headPastor = mockPastors.find((p) => p.name === church?.head_pastor);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const handleUpdate = (updatedChurch: typeof church) => {
     if (updatedChurch) {
@@ -58,8 +62,8 @@ const ChurchDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge variant="secondary">Active</Badge>
-                    <ChurchEditForm 
-                      church={church} 
+                    <ChurchEditForm
+                      church={church}
                       onSave={handleUpdate}
                       trigger={
                         <Button variant="outline" size="sm">
@@ -112,10 +116,10 @@ const ChurchDetail = () => {
               <CardContent>
                 <div className="prose max-w-none text-muted-foreground">
                   <p>
-                    This church serves as a significant religious institution in {church.location}, 
-                    with a substantial congregation of {church.members.toLocaleString()} members. 
-                    The organization reports an annual income of ${(church.income / 1000000).toFixed(1)} million, 
-                    indicating its substantial operational capacity and community impact.
+                    This church serves as a significant religious institution in {church.location}, with a substantial
+                    congregation of {church.members.toLocaleString()} members. The organization reports an annual income
+                    of ${(church.income / 1000000).toFixed(1)} million, indicating its substantial operational capacity
+                    and community impact.
                   </p>
                 </div>
               </CardContent>

@@ -15,7 +15,7 @@ export const mockChurches: Church[] = [
     income: 12500000,
   },
   {
-    id: "2", 
+    id: "2",
     name: "Hillsong Church",
     location: "New York, NY",
     images: [churchSample2],
@@ -26,7 +26,7 @@ export const mockChurches: Church[] = [
   {
     id: "3",
     name: "Lakewood Church",
-    location: "Houston, TX", 
+    location: "Houston, TX",
     images: [churchSample3],
     head_pastor: "Joel Osteen",
     members: 52000,
@@ -50,20 +50,23 @@ export const mockPastors: Pastor[] = [
     age: 84,
     position: "Senior Pastor",
     profile_image: "/api/placeholder/200/200",
+    clergy_type: "Pastor",
   },
   {
-    id: "2", 
+    id: "2",
     name: "Carl Lentz",
     age: 45,
     position: "Lead Pastor",
     profile_image: "/api/placeholder/200/200",
+    clergy_type: "Reverend",
   },
   {
     id: "3",
-    name: "Joel Osteen", 
+    name: "Joel Osteen",
     age: 61,
     position: "Senior Pastor",
     profile_image: "/api/placeholder/200/200",
+    clergy_type: "Pastor",
   },
   {
     id: "4",
@@ -71,5 +74,6 @@ export const mockPastors: Pastor[] = [
     age: 70,
     position: "Senior Pastor",
     profile_image: "/api/placeholder/200/200",
+    clergy_type: "Pastor",
   },
 ];

@@ -26,8 +26,8 @@ const Navigation = () => {
         className={cn(
           "inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200",
           isActive
-            ? "border-b-2 border-accent-500 text-primary-700 dark:text-primary-300 md:border-b-2 md:border-accent-500"
-            : "text-text-600 dark:text-text-400 hover:text-primary-700 dark:hover:text-primary-300 hover:border-b-2 hover:border-secondary-400 dark:hover:border-secondary-600"
+            ? "border-b-2 border-primary text-foreground md:border-b-2 md:border-primary"
+            : "text-muted-foreground hover:text-foreground hover:border-b-2 hover:border-border"
         )}
       >
         <Icon className="mr-2 h-4 w-4" />
@@ -47,8 +47,8 @@ const Navigation = () => {
         className={cn(
           "flex items-center px-4 py-3 text-base font-medium transition-colors duration-200 rounded-lg mx-2",
           isActive
-            ? "bg-gradient-to-r from-primary-100 to-accent-100 dark:from-primary-900 dark:to-accent-900 text-primary-900 dark:text-primary-100 border-l-4 border-accent-500"
-            : "text-text-700 dark:text-text-300 hover:text-primary-800 dark:hover:text-primary-200 hover:bg-secondary-100 dark:hover:bg-secondary-900"
+            ? "bg-primary/10 text-foreground border-l-4 border-primary"
+            : "text-muted-foreground hover:text-foreground hover:bg-muted"
         )}
       >
         <Icon className="mr-3 h-5 w-5" />

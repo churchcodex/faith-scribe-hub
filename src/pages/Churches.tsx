@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import ChurchCard from "@/components/churches/ChurchCard";
@@ -7,6 +7,10 @@ import Layout from "@/components/layout/Layout";
 
 const Churches = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const filteredChurches = mockChurches.filter(
     (church) =>
@@ -20,9 +24,7 @@ const Churches = () => {
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-foreground">Churches</h1>
-          <p className="text-muted-foreground mt-2">
-            Browse and analyze church information
-          </p>
+          <p className="text-muted-foreground mt-2">Browse and analyze church information</p>
         </div>
 
         <div className="relative max-w-md">
